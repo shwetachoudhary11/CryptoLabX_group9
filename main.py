@@ -1,4 +1,7 @@
 
+
+from collections import Counter
+
 while True:
     print("\n========== CryptoLabX ==========")
     print("1. Encrypt")
@@ -19,12 +22,41 @@ while True:
         print("\nAttack - Coming Soon!")
 
     elif choice == "4":
-        print("\nAnalyze - Coming Soon!")
+        filename = input("Enter the file name (example: sample1.txt): ")
+
+        try:
+            with open("datasets/" + filename, "r") as file:
+                text = file.read()
+
+            characters = len(text)
+            words = len(text.split())
+            lines = len(text.splitlines())
+            unique_characters = len(set(text))
+
+            print("\n----- File Analysis -----")
+            print("Characters :", characters)
+            print("Words      :", words)
+            print("Lines      :", lines)
+            print("Unique Characters :", unique_characters)
+
+            letters = []
+
+            for ch in text.lower():
+                if ch.isalpha():
+                    letters.append(ch)
+
+            frequency = Counter(letters)
+
+            print("\nLetter Frequency")
+            for letter in sorted(frequency):
+                print(letter, ":", frequency[letter])
+
+        except FileNotFoundError:
+            print("File not found!")
 
     elif choice == "5":
-        print("\nThank you for using CryptoLabX.")
-        print("Exiting program...")
+        print("Thank you for using CryptoLabX.")
         break
 
     else:
-        print("\nInvalid choice! Please enter a number between 1 and 5.")
+        print("Invalid choice!")
