@@ -1,6 +1,11 @@
-
+from datetime import datetime
 
 from collections import Counter
+
+def write_log(option):
+    with open("outputs/log.txt", "a") as file:
+        current_time = datetime.now()
+        file.write(f"{current_time} - {option}\n")
 
 while True:
     print("\n========== CryptoLabX ==========")
@@ -13,15 +18,19 @@ while True:
     choice = input("Enter your choice (1-5): ")
 
     if choice == "1":
+        write_log("Encrypt")
         print("\nEncrypt - Coming Soon!")
 
     elif choice == "2":
+        write_log("Decrypt")
         print("\nDecrypt - Coming Soon!")
 
     elif choice == "3":
+        write_log("Attack")
         print("\nAttack - Coming Soon!")
 
     elif choice == "4":
+        write_log("Analyze")
         filename = input("Enter the file name (example: sample1.txt): ")
 
         try:
@@ -55,6 +64,7 @@ while True:
             print("File not found!")
 
     elif choice == "5":
+        write_log("Exit")
         print("Thank you for using CryptoLabX.")
         break
 
