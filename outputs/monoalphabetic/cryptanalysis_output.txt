@@ -1,0 +1,25 @@
+========================================
+MONOALPHABETIC CIPHER CRYPTANALYSIS
+========================================
+
+========================================
+LETTER FREQUENCY ANALYSIS
+========================================
+
+Letter   Count   Percentage
+---------------------------
+
+========================================
+WORD FREQUENCY ANALYSIS
+========================================
+
+One-letter words:
+
+Two-letter words:
+
+Three-letter words:
+
+Repeated words:
+
+========================================
+WOR
