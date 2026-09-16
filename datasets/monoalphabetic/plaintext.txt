@@ -1,0 +1,40 @@
+Comparison of schemes: Often in cryptography, we may be presented
+with two schemes that can both be proven to satisfy some definition but
+each with respect to a different assumption. Assuming both schemes are
+equally efficient, which scheme should be preferred? If the assumption
+that one scheme is based on is weaker than the assumption the second
+scheme is based on (i.e., the second assumption implies the first), then
+the first scheme is to be preferred since it may turn out that the second
+assumption is false while the first assumption is true. If the assumptions
+used by the two schemes are incomparable, then the general rule is to
+prefer the scheme that is based on the better-studied assumption (for
+the reasons highlighted in the previous paragraphs).
+3. Facilitation of a proof of security: As we have stated, and will discuss
+in more depth in principle 3, modern cryptographic constructions are
+presented together with proofs of security. If the security of the scheme
+cannot be proven unconditionally and must rely on some assumption,
+then a mathematical proof that “the construction is secure if the assumption is true” can only be provided if there is a precise statement of
+what the assumption is.
+One observation is that it is always possible to just assume that a construction itself is secure. If security is well defined, this is also a precise assumption
+(and the proof of security for the construction is trivial)! Of course, this is
+not accepted practice in cryptography (for the most part) for a number of
+reasons. First of all, as noted above, an assumption that has been tested
+over the years is preferable to a new assumption that is introduced just to
+prove a given construction secure. Second, there is a general preference for
+assumptions that are simpler to state, since such assumptions are easier to
+study and to refute. So, for example, an assumption of the type that some
+mathematical problem is hard to solve is simpler to study and work with than
+an assumption that an encryption schemes satisfies a complex (and possibly
+unnatural) security definition. When a simple assumption is studied at length
+and still no refutation is found, we have greater confidence in its being correct.
+Another advantage of relying on “lower-level” assumptions (rather than just
+assuming a scheme is secure) is that these low-level assumptions can typically
+be shared amongst a number of constructions. If a specific instantiation of the
+assumption turns out to be false, it can be replaced within the higher-level
+constructions by another instantiation of that assumption.
+The above methodology is used throughout this book. For example, Chapters 3 and 4 show how to achieve secure communication (in a number of ways),
+assuming that a primitive called a “pseudorandom function” exists. In these
+chapters nothing is said at all about how such a primitive can be constructed.
+In Chapter 5, we then show how pseudorandom functions are constructed
+in practice, and in Chapter 6 we show that pseudorandom functions can be
+constructed from even lower-level primitives.
